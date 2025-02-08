@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  authenticate:
+  build-and-publish:
     runs-on: ubuntu-latest
     steps:
       - name: Log in to Docker Hub
@@ -14,14 +14,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-  build-and-publish:
-    needs: authenticate
-    runs-on: ubuntu-latest
-    steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
