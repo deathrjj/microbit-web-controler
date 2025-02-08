@@ -8,5 +8,12 @@ export const config: Config = {
     ],
     devServer: {
         reloadStrategy: 'pageReload'
+    },
+    tsconfig: './tsconfig.json',
+    extras: {
+        enableImportInjection: true,
+    },
+    nodeResolve: {
+        preferBuiltins: true
     }
 };
