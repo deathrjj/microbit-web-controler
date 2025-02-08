@@ -50,6 +50,13 @@ export class MicrobitButtonB {
     }
 
     private setClassName(state: number) {
+        if (state === 1) {
+            console.log("Button B pressed: short press");
+            fetch("http://192.168.1.206:8123/api/webhook/-IOmmrIAVZ_ahAeZ7E3tgw4iw", { method: 'POST' }).catch(err => console.error(err));
+        } else if (state === 2) {
+            console.log("Button B pressed: long press");
+            fetch("http://192.168.1.206:8123/api/webhook/-IOmmrIAVZ_ahAeZ7E3tgw4iw", { method: 'POST' }).catch(err => console.error(err));
+        }
         this.className = state === 1 ? this.shortPressClass
         : state === 2 ? this.longPressClass
         : this.releaseClass;

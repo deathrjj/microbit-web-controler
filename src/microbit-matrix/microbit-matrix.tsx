@@ -42,7 +42,7 @@ export class MicrobitMatrix {
      * The CSS class for on LEDs
      */
     @Prop()
-    public onClass: string = "microbit-matrix-on";
+    public activeClass: string = "microbit-matrix-on";
 
     private matrix: LedMatrix;
     private elements: ElMatrix;
@@ -58,7 +58,7 @@ export class MicrobitMatrix {
                 if (led) {
                     els[i][j] = led;
                     led.onclick = () => this.toggle(i, j);
-                    led.classList.toggle(this.onClass, false);
+                    led.classList.toggle(this.activeClass, false);
                     led.classList.toggle(this.offClass, false);
                 }
             }
@@ -84,7 +84,7 @@ export class MicrobitMatrix {
             rows.forEach((value: boolean, column) => {
                 const led = this.elements[row][column];
                 if (led) {
-                    led.classList.toggle(this.onClass, value);
+                    led.classList.toggle(this.activeClass, value);
                     led.classList.toggle(this.offClass, !value);
                 }
             });
