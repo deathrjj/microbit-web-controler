@@ -5,7 +5,24 @@
 
 # DeathJJ Fork Changes
 
+## Running
+### Docker
 `docker run -d --name microbit-web-controller deathrjj/microbit-web-controller:latest`
+
+Webpage accessible `http://localhost:80`
+
+### docker-compose
+```
+services:
+  microbit-web-controller:
+    image: deathrjj/microbit-web-controller:latest
+    container_name: microbit-web-controller
+    ports:
+      - "80:80"
+    restart: unless-stopped
+```
+
+Webpage accessible `http://localhost:80`
 
 
 Web Components library for micro:bit
